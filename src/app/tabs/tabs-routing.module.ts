@@ -8,12 +8,12 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'home',
         loadChildren: () => import('../components/tab1/tab1.module').then(m => m.Tab1PageModule)
       },
       {
         path: 'calculator',
-        loadChildren: () => import('../components/tab2/tab2.module').then(m => m.Tab2PageModule)
+        loadChildren: () => import('../components/calculator/calculator.module').then(m => m.CalculatorPageModule)
       },
       {
         path: 'library',
@@ -21,19 +21,20 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/home',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/home',
     pathMatch: 'full'
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
 })
 export class TabsPageRoutingModule {}

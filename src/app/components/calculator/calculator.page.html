@@ -1,0 +1,57 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-title">
+      Calcular Valor da Hora
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-content">
+  <ion-grid class="ion-grid">
+    <ion-row>
+      <ion-col class="ion-col">
+        <form (ngSubmit)="calcularValorHora()" class="form">
+          <ion-label class="ion-label" position="floating">Gastos Fixos</ion-label>
+          <ion-item class="ion-item">
+            <ion-input 
+              class="ion-input"
+              type="number" 
+              [(ngModel)]="gastosFixos" 
+              name="gastosFixos" 
+              aria-placeholder="Gastos fixos"
+              required></ion-input>
+          </ion-item>
+          
+          <ion-note color="danger" *ngIf="isInvalid">
+            Por favor, insira um valor válido para os gastos fixos.
+          </ion-note>
+
+          <ion-label class="ion-label" position="floating">Gastos Variáveis</ion-label>
+          <ion-item class="ion-item">
+            <ion-input class="ion-input" type="number" [(ngModel)]="gastosVariaveis" name="gastosVariaveis" required></ion-input>
+          </ion-item>
+
+          <ion-label class="ion-label" position="floating">Valor do frella</ion-label>
+          <ion-item class="ion-item">
+            <ion-input class="ion-input" type="number" [(ngModel)]="valorFrella" name="valorFrella" required></ion-input>
+          </ion-item>
+
+          <ion-button class="btn" expand="block" type="submit">Calcular</ion-button>
+        </form>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="valorHora !== null">
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Sua hora vale</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            R$ {{ valorHora | number:'1.2-2' }}
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
