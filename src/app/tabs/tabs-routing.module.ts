@@ -17,7 +17,7 @@ const routes: Routes = [
       },
       {
         path: 'library',
-        loadChildren: () => import('../components/tab3/tab3.module').then(m => m.Tab3PageModule)
+        loadChildren: () => import('../components/more-info/more-info.module').then(m => m.MoreInfoPageModule)
       },
       {
         path: '',

@@ -6,13 +6,14 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-content">
-  <ion-grid class="ion-grid">
+<ion-content [fullscreen]="true">
+  <ion-grid class="ion-grid" [ngClass]="{'inner-scroll-y': isDisabled}">
     <ion-row>
       <ion-col class="ion-col">
         <form (ngSubmit)="calcularValorHora()" class="form">
-          <ion-label class="ion-label" position="floating">Gastos Fixos</ion-label>
+          <!-- Gastos Fixos -->
           <ion-item class="ion-item">
+            <ion-label class="ion-label" position="floating">Gastos Fixos</ion-label>
             <ion-input 
               class="ion-input"
               type="number" 
@@ -21,22 +22,35 @@
               aria-placeholder="Gastos fixos"
               required></ion-input>
           </ion-item>
-          
-          <ion-note color="danger" *ngIf="isInvalid">
-            Por favor, insira um valor válido para os gastos fixos.
-          </ion-note>
 
-          <ion-label class="ion-label" position="floating">Gastos Variáveis</ion-label>
+          <!-- Gastos Variáveis -->
           <ion-item class="ion-item">
+            <ion-label class="ion-label" position="floating">Gastos Variáveis</ion-label>
             <ion-input class="ion-input" type="number" [(ngModel)]="gastosVariaveis" name="gastosVariaveis" required></ion-input>
           </ion-item>
 
-          <ion-label class="ion-label" position="floating">Valor do frella</ion-label>
+          <!-- Horas por Dia -->
           <ion-item class="ion-item">
-            <ion-input class="ion-input" type="number" [(ngModel)]="valorFrella" name="valorFrella" required></ion-input>
+            <ion-label class="ion-label" position="floating">Horas por Dia</ion-label>
+            <ion-input class="ion-input" type="number" [(ngModel)]="horasPorDia" name="horasPorDia" required></ion-input>
           </ion-item>
 
-          <ion-button class="btn" expand="block" type="submit">Calcular</ion-button>
+          <!-- Dias por Semana -->
+          <ion-item class="ion-item">
+            <ion-label class="ion-label" position="floating">Dias por Semana</ion-label>
+            <ion-input class="ion-input" type="number" [(ngModel)]="diasPorSemana" name="diasPorSemana" required></ion-input>
+          </ion-item>
+
+          <!-- Faturar por Mês -->
+          <ion-item class="ion-item">
+            <ion-label class="ion-label" position="floating">Faturar por Mês</ion-label>
+            <ion-input class="ion-input" type="number" [(ngModel)]="faturarPorMes" name="faturarPorMes" required></ion-input>
+          </ion-item>
+
+          <div>
+            <ion-label class="ion-label" position="floating">O valor mínimo é</ion-label>
+            <ion-button class="btn" expand="block" type="submit">Calcular</ion-button>
+          </div>
         </form>
       </ion-col>
     </ion-row>

@@ -1,4 +1,11 @@
 
+:host {
+    .inner-scroll-y {
+        overflow: initial !important;
+    }
+}
+  
+
 /* Estrutura */
 
 .ion-content {
@@ -18,7 +25,7 @@
     padding-block-start: 1rem;
     max-block-size: 100%;
     max-inline-size: 100%;
-    overflow-y: scroll;
+    overflow-y: scroll !important;
 }
 
 .ion-col {
@@ -37,8 +44,11 @@
 .form {
     align-items: center;
     block-size: auto;
-    display: flex;
-    flex-direction: column;
+    /* display: flex; */
+    display: grid;
+    /* flex-direction: column; */
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
     gap: 1rem;
     /* background-color: red; */
     inline-size: fit-content;
@@ -54,7 +64,8 @@
     flex-direction: column;
     /* padding-inline: 8px; */
 /*     position: relative; */
-    margin-block-end: 8px
+    margin-block-end: 8px;
+    gap: 10rem;
 }
 
 .ion-label {
@@ -68,6 +79,7 @@
 /*     position: relative;
     bottom: 30%;
     z-index: 2; */
+    margin-block-end: 2rem;
 }
 
 .ion-input {

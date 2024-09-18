@@ -2,10 +2,10 @@ import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Tab3Page } from './tab3.page';
+import { MoreInfoPage } from './more-info.page';
 import { FrellaIntroComponentModule } from '../frella.introduction/frella-presentation.module';
 
-import { Tab3PageRoutingModule } from './tab3-routing.module';
+import { MoreInfoRoutingModule } from './more-info-routing.module';
 
 @NgModule({
   imports: [
@@ -13,8 +13,8 @@ import { Tab3PageRoutingModule } from './tab3-routing.module';
     CommonModule,
     FormsModule,
     FrellaIntroComponentModule,
-    Tab3PageRoutingModule
+    MoreInfoRoutingModule
   ],
-  declarations: [Tab3Page]
+  declarations: [MoreInfoPage]
 })
-export class Tab3PageModule {}
+export class MoreInfoPageModule {}

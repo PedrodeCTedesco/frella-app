@@ -8,5 +8,6 @@ import { Component, Input } from '@angular/core';
 export class FrellaIntroComponent {
 
   @Input() name?: string;
+  @Input() text?: string;
 
 }
